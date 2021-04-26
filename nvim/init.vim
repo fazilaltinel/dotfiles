@@ -1,6 +1,12 @@
 " This file follows the tutorial at https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
 " [TODO] https://www.reddit.com/r/neovim/comments/mu976j/new_dark_neovim_theme_tokyonight_written_in_lua/
 
+" Set python interpereter to use virtualenvs
+" The env variable is something like /foo/bar/bin/python
+if !empty($CONDANVIM)
+  let g:python3_host_prog= $CONDANVIM
+endif
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'davidhalter/jedi-vim'
@@ -17,8 +23,6 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
@@ -93,3 +97,4 @@ set nofoldenable
 " K: check documentation of class or method
 " <leader>n: show the usage of a name in current file
 " <leader>r: rename a name
+" C-ww: Change the window
