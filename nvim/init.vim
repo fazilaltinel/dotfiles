@@ -25,6 +25,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -66,6 +68,13 @@ nnoremap <silent> <leader>gpl :Git pull<CR>
 " Note that to use bar literally, we need backslash it, see also `:h :bar`.
 nnoremap <silent> <leader>gpu :15split \| term git push
 
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 0
+
+"let g:indent_blankline_space_char = ' '
+let b:indent_blankline_enabled = v:false
+let g:indentLine_char = '▏'
+
 set noswapfile
 
 set number  " Show line number and relative line number
@@ -93,6 +102,12 @@ set visualbell noerrorbells  " Do not use visual and errorbells
 set history=500  " The number of command and search history to keep
 
 set nofoldenable
+
+" Case insensitive autocompletion for command mode
+set wildignorecase
+
+" Switch between buffers without saving
+set hidden
 
 " Some keybindings
 " <leader>cc comment out single line
