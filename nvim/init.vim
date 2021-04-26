@@ -19,10 +19,12 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'davidhalter/jedi-vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'morhetz/gruvbox'
+Plug 'sickill/vim-monokai'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -30,7 +32,8 @@ let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-let g:airline_theme='powerlineish'
+"let g:airline_theme='powerlineish'
+let g:airline_theme='jellybeans'
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -40,16 +43,17 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 " Buffer number display format
 let g:airline#extensions#tabline#buffer_nr_format = '%s. '
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 " disable autocompletion, because we use deoplete for completion
 let g:jedi#completions_enabled = 0
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
 
-let g:gruvbox_contrast_dark = "hard"
-colorscheme gruvbox
-set background=dark
+"let g:gruvbox_contrast_dark = "hard"
+"colorscheme gruvbox
+"set background=dark
+colorscheme monokai
 
 " The VCS to use
 let g:signify_vcs_list = [ 'git' ]
