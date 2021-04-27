@@ -27,6 +27,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'Yggdroot/indentLine'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -108,6 +109,8 @@ set wildignorecase
 
 " Switch between buffers without saving
 set hidden
+
+set encoding=UTF-8
 
 " Some keybindings
 " <leader>cc comment out single line
