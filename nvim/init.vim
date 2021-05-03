@@ -28,6 +28,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'Yggdroot/indentLine'
 Plug 'ryanoasis/vim-devicons'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -76,9 +78,19 @@ let g:NERDSpaceDelims = 0
 let b:indent_blankline_enabled = v:false
 let g:indentLine_char = '▏'
 
+let g:UltiSnipsExpandTrigger="<tab>"  " use <Tab> to trigger autocompletion
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
 set noswapfile
 
-set number  " Show line number and relative line number
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+" set number  " Show line number and relative line number
 
 " Character to show before the lines that have been soft-wrapped
 set showbreak=↪
@@ -112,6 +124,11 @@ set hidden
 
 set encoding=UTF-8
 
+" Yank into global clipboard
+set clipboard=unnamedplus
+
+set colorcolumn=80
+
 " Some keybindings
 " <leader>cc comment out single line
 " <leader>cu uncomment a line
@@ -120,3 +137,5 @@ set encoding=UTF-8
 " <leader>n: show the usage of a name in current file
 " <leader>r: rename a name
 " C-ww: Change the window
+" [m: go to beginning of the code block
+" ]m: go to end of the code block
